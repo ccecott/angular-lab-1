@@ -1,0 +1,29 @@
+<div class="todo-component">
+    <div class="todo-text">
+        <h1 class="title"> TODO List</h1>
+        <h2 class="app-description">A place to store your todos</h2>
+        <!-- <h3 class="app-directions">Filter your to-dos</h3> -->
+        <form class="form-todo">
+            <label for="filter"></label>
+            <input type="text" id="filter" name="filter" placeholder="Filter your to-dos" class="input">
+
+        </form> <!-- this needs to be a form input for text -->
+    </div>
+    <div class="todo-input">
+        <ol>
+            <!-- *ngFor string interpilation-->
+            <!-- {{ text from the ts- must use dot notation  }} -->
+            <li class="list-item" *ngFor="let todo of todoList" [ngClass]="{ done: todo.completed }">
+                <button *ngIf="!todo.completed" type="button" class="complete">Complete</button>{{ todo.task }}
+                <button type="button" class="x">X</button></li>
+        </ol>
+        <div class="form">
+            <form class="form-todo">
+                <label for="adding"></label>
+                <input type="text" id="adding" name="adding" placeholder="Add your to-do" class="input">
+
+            </form>
+            <button type="button" class="add-button">Add</button>
+        </div>
+    </div>
+</div>
